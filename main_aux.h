@@ -9,8 +9,8 @@
 #define MAIN_AUX_H_
 
 int checkNumHeaps(int numHeaps);
-void printStatus(int heapsArr[], int turns);
-void printRep(int heapsArr[]);
-int checkValid(int userHeap, int userOut, int heapsArr[]);
+void printStatus(int heapsArr[], int turns, int N);
+void printRep(int heapsArr[], int N);
+int checkValid(int userHeap, int userOut, int heapsArr[], int N);
 
 #endif /* MAIN_AUX_H_ */

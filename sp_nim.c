@@ -1,13 +1,15 @@
 /*
  * sp_nim.c
  *
- *  Created on: 1 במאי 2017
- *      Author: uri
+ *  Created on: 1 may 2017
+ *      Author: uri and maya
  */
 
-int checkEmpty(int heapsArr[]) {
-	int i;
-	for (i = 0; i < sizeof(heapsArr) / sizeof(int); i++) {
+#include <stdio.h>
+
+
+int checkEmpty(int heapsArr[], int N) {
+	for (int i = 0; i < N; i++) {
 		if (heapsArr[i] != 0)
 			return 0;
 	}
@@ -18,34 +20,34 @@ void turnGame(int heapsArr[], int heapIndex, int outAmount) {
 	heapsArr[heapIndex - 1] -= outAmount;
 }
 
-int compMove(int heapsArr[], int *compOut) {
-	int sNim, i, length, nimSumHeap, compHeap, compParam;
-	length = sizeof(heapsArr) / sizeof(int);
-	sNim = heapsArr[0];
-	for (i = 1; i < length; i++) {
+int compMove(int heapsArr[], int compOut[], int N) {
+	int sNim, nimSumHeap, compHeap = 0, compParam;
+	sNim = 0;
+	//compute sNim
+	for (int i = 0; i < N; i++) {
 		sNim ^= heapsArr[i];
 	}
 	if (sNim != 0) {
-		for (i = 0; i < length; i++) {
+		for (int i = 0; i < N; i++) {
 			nimSumHeap = heapsArr[i] ^ sNim;
 			if (nimSumHeap < heapsArr[i]) {
-				compParam = i;
+				compHeap = i;
 				break;
 			}
 		}
-		compOut = nimSumHeap;
-		heapsArr[compParam] -= compOut;
-	} else { //sNim =0
-		for (i = 0; i < length; i++) {
+		compParam = heapsArr[compHeap] - nimSumHeap;
+		heapsArr[compHeap] -= compParam;
+	} else { //sNim = 0
+		for (int i = 0; i < N; i++) {
 			if (heapsArr[i] > 0) {
 				compParam = i;
 				break;
 			}
 		}
-		compOut = 1;
-		heapsArr[compHeap] -= compOut;
+		compParam = 1;
+		heapsArr[compHeap] -= compParam;
 	}
-	*compOut = compParam;
+	//in order to return 2 values
+	compOut[0] = compParam;
 	return compHeap;
-
 }
