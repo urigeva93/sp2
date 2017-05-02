@@ -45,7 +45,7 @@ int main() {
 				scanf("%d %d", &userHeap, &userOut);
 			}
 			turnGame(heapsArr, userHeap, userOut);
-			printf("You take %d objects from heap %d.\n", userOut, userHeap + 1);
+			printf("You take %d objects from heap %d.\n", userOut, userHeap);
 		} else { //computer turn
 			compHeap = compMove(heapsArr, compOut, numHeaps);
 			printf("Computer takes %d objects from heap %d.\n", compOut[0], compHeap + 1);

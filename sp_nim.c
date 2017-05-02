@@ -40,7 +40,7 @@ int compMove(int heapsArr[], int compOut[], int N) {
 	} else { //sNim = 0
 		for (int i = 0; i < N; i++) {
 			if (heapsArr[i] > 0) {
-				compParam = i;
+				compHeap = i;
 				break;
 			}
 		}
