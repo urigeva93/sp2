@@ -30,12 +30,18 @@ void printRep(int heapsArr[], int N) {
 			max = heapsArr[i];
 	}
 	for (int i = 0; i < max; i++) {
-		for (int j = 0; j < N; j++) {
+		for (int j = 0; j < N - 1; j++) {
 			if (i >= max - heapsArr[j])
 				printf("*\t");
 			else
-				printf("\t");
+				printf(" \t");
 		}
+		//the last object in line doesn't need space after
+		if(i >= max - heapsArr[N -1])
+			printf("*");
+		else
+			printf(" ");
+
 		printf("\n");
 	}
 }

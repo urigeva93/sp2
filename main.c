@@ -6,15 +6,14 @@
 
 int main() {
 	SP_BUFF_SET();
-	int numHeaps, val = 0, cnt = 1, digit, turns = -1, userHeap, userOut, compHeap = 0;
+	int numHeaps, val = 0, cnt = 1, digit, turns = -1, userHeap, userOut, compHeap = 0, heapsArr[SIZE] = {0}, compOut[1] = {0};
 	char input;
-	int heapsArr[SIZE] = {0}, compOut[1] = {0};
 	printf("Enter the number of heaps:\n");
 	if (scanf("%d", &numHeaps) < 1 || checkNumHeaps(numHeaps) == 0) {
 		printf("Error: the number of heaps must be between 1 and 32.\n");
 		return 0;
 	}
-	printf("Enter the heaps sizes:\n");
+	printf("Enter the heap sizes:\n");
 	input = getchar();
 	while ((input = getchar()) != EOF && input != '\n') {
 		if (input != ' ') {

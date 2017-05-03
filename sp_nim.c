@@ -7,7 +7,6 @@
 
 #include <stdio.h>
 
-
 int checkEmpty(int heapsArr[], int N) {
 	for (int i = 0; i < N; i++) {
 		if (heapsArr[i] != 0)
